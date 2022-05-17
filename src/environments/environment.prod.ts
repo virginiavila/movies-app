@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: false,
+  API_KEY: "d062cfc5bd440cedf680312b2f399e1b",
+  IMG_URL: 'https://image.tmdb.org/t/p/original',
 };

@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Movie } from 'src/app/interfaces/Movie';
 import { MoviesService } from 'src/app/services/movies.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-movie',
@@ -10,12 +12,19 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class MoviePage implements OnInit {
 
-  constructor(private api: MoviesService) { }
-
   movie: Movie;
+  movieid: number;
+  imgurl: string = environment.IMG_URL;
+
+  constructor(private api: MoviesService, private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.params.subscribe( params => {
+      this.movieid = params['movieid'];
+     })
+   }
+
 
   ngOnInit() {
-    this.getMovieDetails(2);
+    this.getMovieDetails(this.movieid);
   }
 
 
@@ -24,10 +33,9 @@ export class MoviePage implements OnInit {
       (response) => {
         this.movie = response;
         console.log(this.movie);   
-
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        console.log(error.message);
       }
     );
   }

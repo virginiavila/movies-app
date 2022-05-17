@@ -5,7 +5,7 @@ import { MoviePage } from './movie.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':movieid',
     component: MoviePage
   }
 ];

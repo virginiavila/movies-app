@@ -5,9 +5,7 @@
 export const environment = {
   production: false,
   API_KEY: "d062cfc5bd440cedf680312b2f399e1b",
-  BASE_URL: 'https://api.themoviedb.org/3/movie/popular',
   IMG_URL: 'https://image.tmdb.org/t/p/original',
-  SEARCH_URL: 'https://api.themoviedb.org/3/search/movie',
 };
 
 

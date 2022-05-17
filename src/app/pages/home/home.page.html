@@ -1,16 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <ion-title>Movies app</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar placeholder="Buscar Película" animated debounce="700" color="dark"
-    (ionChange)="getMovieByTitle($event)" class="searchbar__input">
+  <ion-searchbar placeholder="Search movie" animated debounce="700" color="dark" (ionChange)="getMovieByTitle($event)" class="searchbar__input">
   </ion-searchbar>
 
   <div *ngFor="let movie of movies">
-    <h3>{{movie.title}}</h3>
+    <ion-list  [routerLink]="['../movie', movie.id]">{{movie.title}}</ion-list>
   </div>
   
 

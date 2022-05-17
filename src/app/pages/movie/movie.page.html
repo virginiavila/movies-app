@@ -8,4 +8,9 @@
 
 <ion-content>
 
+
+  <h1>{{movie?.title}}</h1>
+  <p>{{movie?.overview}}</p>
+  <img [src]="imgurl + movie?.poster_path" width="300px"> 
+  <img [src]="imgurl + movie?.backdrop_path" width="300px"> 
 </ion-content>
