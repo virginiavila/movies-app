@@ -1,31 +1,32 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header class="ion-no-border ion-text-center">
+  <ion-toolbar >
      <ion-title>Movies App</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-text-center">
   <ion-grid>
     <ion-row>
         <ion-col class="ion-text-center">
-          <ion-searchbar placeholder="Search movie" animated debounce="700" color="dark" (ionChange)="getMovieByTitle($event)" class="search">
+          <ion-searchbar placeholder="Search movie" animated debounce="700" color="dark" (ionChange)="getMovieByTitle($event)" class="searchbar">
           </ion-searchbar>
         </ion-col>
-        <ion-col>
-          <p>Films</p>
-        </ion-col>
+        <!-- <ion-col>
+
+        </ion-col> -->
       </ion-row>
 
 
-
-      
+      <ion-row>
+        
           <ion-list  *ngFor="let movie of movies" [routerLink]="['../movie', movie.id]">
             <ion-item class="ion-text-center itemlist">
-              <ion-label>{{movie.title}} <ion-icon color="warning" name="chevron-forward-circle-outline"></ion-icon></ion-label>
+              <ion-label>{{movie.title}} <ion-icon name="chevron-forward-outline" color="warning"></ion-icon></ion-label>
+              
             </ion-item>
           </ion-list>
+        </ion-row>     
 
-
-</ion-grid>
+        </ion-grid>
 </ion-content>
 

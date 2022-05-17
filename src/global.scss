@@ -27,3 +27,16 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+
+
+ion-searchbar{
+    .searchbar-input-container{
+        color: rgb(255, 217, 0);
+        .searchbar-input{
+            color: white;
+            border-radius: 30px !important;
+        }
+    }
+}

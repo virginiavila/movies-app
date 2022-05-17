@@ -3,11 +3,21 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.search{
-    width: 400px;
+// ion-content{
+//     --background: red
+// }
+
+
+ion-item{
+    --background: linear-gradient(150deg, #303438 0%, #45484e 100%);
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin: 5px 10px 0px 10px;
+    cursor: pointer;
+    
 }
 
-.itemlist{
-    width: 400px;
-}
+
+
+
 
