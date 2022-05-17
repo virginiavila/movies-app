@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Movie</ion-title>
+    <h2><ion-icon name="arrow-back-circle-outline" [routerLink]="['/']" color="warning"></ion-icon></h2>
+    <ion-buttons>
+      <ion-back-button [routerLink]="['/']" text="" ></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -11,6 +14,9 @@
 
   <h1>{{movie?.title}}</h1>
   <p>{{movie?.overview}}</p>
+  <ion-text color="warning">
+  <p>{{movie?.vote_average}}<ion-icon name="star"></ion-icon> </p>
+  </ion-text>
   <img [src]="imgurl + movie?.poster_path" width="300px"> 
   <img [src]="imgurl + movie?.backdrop_path" width="300px"> 
 </ion-content>
