@@ -5,5 +5,14 @@
 </ion-header>
 
 <ion-content>
+  <ion-searchbar placeholder="Buscar Película" animated debounce="700" color="dark"
+    (ionChange)="getMovieByTitle($event)" class="searchbar__input">
+  </ion-searchbar>
+
+  <div *ngFor="let movie of movies">
+    <h3>{{movie.title}}</h3>
+  </div>
+  
 
 </ion-content>
+
