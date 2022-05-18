@@ -22,7 +22,8 @@ export class MovielistPage implements OnInit {
 
   getMovieByTitle($event: any) {
     this.title = $event.target.value
-    this.searchMovie(this.title);
+    if( this.title == '') this.movies = [];
+    else this.searchMovie(this.title);
   }
 
   searchMovie(title: string){

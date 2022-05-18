@@ -8,20 +8,20 @@
 <ion-content>
 
 
-    <img *ngIf="movie?.backdrop_path != null; else backdrop" [src]="imgurl + movie?.backdrop_path"  class="backdrop"> 
+    <img *ngIf="movie?.backdrop_path != null; else backdrop" [src]="imgurl + movie?.backdrop_path"  class="backdrop" >  
     <ng-template #backdrop><img src="assets/background.jpg"  class="backdrop"> </ng-template>
 
 
   <ion-item-group style="display: flex;  justify-content: center">
     <ion-card>
       <ion-card-header>
-          <ion-card-title  color="light" style="font-size: 30px">{{movie?.title}}</ion-card-title>
+          <ion-card-title  color="light" style="font-size: 25px">{{movie?.title}}</ion-card-title>
           <ion-card-subtitle >{{movie?.tagline}} </ion-card-subtitle>
       </ion-card-header>
 
-      <ion-item  *ngIf="movie?.poster_path != null">
-        <img [src]="imgurl + movie?.poster_path" width="250px"> 
-      </ion-item>  
+      <ion-card-content *ngIf="movie?.poster_path != null">  
+        <img [src]="imgurl + movie?.poster_path" width="200px"> 
+      </ion-card-content>  
 
 
       <ion-card-content> 
