@@ -5,16 +5,18 @@
 
 
 ion-card{
-max-width: 620px;
-padding: 10px 10px 10px 25px;
-margin: 20px 0px 20px 0px;
-border-radius: 0%;
-border-left: 2px  solid #ffc409;
-box-shadow: none !important;
+    max-width: 620px;
+    padding: 10px 10px 10px 25px;
+    margin: 20px 0px 20px 0px;
+    border-radius: 0%;
+    border-left: 2px  solid #ffc409;
+    box-shadow: none !important;
 }
 
 
-
+.readmore{
+    color: #ffc609a2
+}
 
 
 .backdrop {
@@ -26,10 +28,9 @@ box-shadow: none !important;
     position: fixed;
     background-size: 100% 100%;
     filter: grayscale(100%);
-    opacity: 0.2;
+    opacity: 0.25;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
     object-fit: cover;
  }
 

@@ -1,33 +1,35 @@
 <ion-header class="ion-no-border">
   <ion-toolbar >
-     <ion-title></ion-title>
+     <ion-title><ion-icon name="play" color="warning"></ion-icon> Movies app</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 
 <ion-content style="margin: 0 auto;">
-  <img src="assets/background.jpg"  class="background"> 
+<img src="assets/background.jpg"  class="background"> 
   
-  <ion-grid>
-    <ion-row>
-        <ion-col>
-          <ion-searchbar placeholder="Search movie by title" animated debounce="700" color="dark" (ionChange)="getMovieByTitle($event) ">
-          </ion-searchbar>
-        </ion-col>
- </ion-row>
-
+     <ion-grid>
+          <ion-row>
+                  <ion-col>
+                    <ion-searchbar [(ngModel)]="movieTittle" placeholder="Search movie by title" animated debounce="700" color="dark" (ionChange)="getMovieByTitle($event) ">
+                    </ion-searchbar>
+                  </ion-col>
+          </ion-row>
 
         
           <ion-list  *ngFor="let movie of movies" [routerLink]="['../moviedetail', movie.id]"  style="display: flex; float: left; justify-content: center; background-color: transparent;">
             <ion-item class="ion-text-center itemlist">
-              <ion-label>{{movie.title}} <ion-icon name="chevron-forward-outline" color="warning"></ion-icon></ion-label>
-              
+              <ion-label>{{movie.title}} <ion-icon name="chevron-forward-outline" color="warning"></ion-icon></ion-label>            
             </ion-item>
           </ion-list>
+ 
+          <ion-text color="warning">
+            <h5 *ngIf="movieNotFound" class="alert"><ion-icon name="alert-circle"></ion-icon> No movies found with tittle {{ movieTittle }}</h5> 
+            <h5 *ngIf="apiError" class="alert"><ion-icon name="alert-circle"></ion-icon> {{ errorApiMessage }}</h5> 
+          </ion-text>
 
-
-        </ion-grid>
+   </ion-grid>
 
         
 </ion-content>

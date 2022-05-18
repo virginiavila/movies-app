@@ -25,7 +25,8 @@
 
 
       <ion-card-content> 
-        <p><i>{{movie?.overview}}</i></p>
+        <p *ngIf="value<10000" ><i>{{movie?.overview |  slice: 0 : value }} ...<span  class="readmore" (click)="value=10000"> read more</span> </i></p>
+        <p *ngIf="value>180" ><i>{{movie?.overview |  slice: 0 : value }} ...<span class="readmore" (click)="value=180"> hide</span> </i></p>
       </ion-card-content>
 
       <ion-item>
@@ -41,7 +42,7 @@
 
       <ion-item>
         <ion-icon name="chatbubble-ellipses-outline" slot="start"></ion-icon>
-        <ion-label>V.O. {{movie?.original_language}}</ion-label>
+        <ion-label>Language: {{movie?.original_language}}</ion-label>
       </ion-item>
 
 

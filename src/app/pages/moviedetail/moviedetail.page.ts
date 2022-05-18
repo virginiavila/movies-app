@@ -15,6 +15,7 @@ export class MovieDetailPage implements OnInit {
   movie: MovieDetail;
   movieid: number;
   imgurl: string = environment.IMG_URL;
+  value: number = 180;
 
   constructor(private api: MoviesService, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe( params => {
