@@ -11,13 +11,22 @@
   
      <ion-grid>
           <ion-row>
-                  <ion-col>
+             
                     <ion-searchbar [(ngModel)]="movieTittle" placeholder="Search movie by title" animated debounce="700" color="dark" (ionChange)="getMovieByTitle($event) ">
                     </ion-searchbar>
-                  </ion-col>
+                    <ion-fab-button size="small" color="warning"><ion-icon name="arrow-back-outline"></ion-icon></ion-fab-button>
+                    <ion-fab-button size="small" color="warning"><ion-icon name="arrow-forward-outline"></ion-icon></ion-fab-button>
+     
+                  
           </ion-row>
 
-        
+          <ion-row *ngIf="totalPages > 1">
+            <ion-button color="warning" fill="outline"  [class.button-disabled]="page == 1" (click)="searchMovie(movieTittle, page-1)">Previous page</ion-button> 
+            <ion-button color="warning" fill="outline"  [class.button-disabled]="page == totalPages"(click)="searchMovie(movieTittle, page+1)">Next page</ion-button>
+
+          </ion-row>
+
+
           <ion-list  *ngFor="let movie of movies" [routerLink]="['../moviedetail', movie.id]"  style="display: flex; float: left; justify-content: center; background-color: transparent;">
             <ion-item class="ion-text-center itemlist">
               <ion-label>{{movie.title}} <ion-icon name="chevron-forward-outline" color="warning"></ion-icon></ion-label>            
@@ -28,6 +37,9 @@
             <h5 *ngIf="movieNotFound" class="alert"><ion-icon name="alert-circle"></ion-icon> No movies found with tittle {{ movieTittle }}</h5> 
             <h5 *ngIf="apiError" class="alert"><ion-icon name="alert-circle"></ion-icon> {{ errorApiMessage }}</h5> 
           </ion-text>
+
+
+
 
    </ion-grid>
 

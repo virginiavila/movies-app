@@ -17,6 +17,10 @@ export class MovielistPage implements OnInit {
   movieTittle: string = '';
   apiError: boolean = false;
   errorApiMessage: string = '';
+  page: number = 1;
+  pagination: MovieList;
+  totalPages: number;
+  totalResults: number;
 
   constructor(private api: MoviesService) { }
 
@@ -27,13 +31,16 @@ export class MovielistPage implements OnInit {
   getMovieByTitle($event: any) {
     this.title = $event.target.value
     if( this.title == '') {this.movies = []; this.movieNotFound == false;}
-    else this.searchMovie(this.title);
+    else this.searchMovie(this.title, 1);
   }
 
-  searchMovie(title: string){
-    this.api.getMovies(title).subscribe(
+  searchMovie(title: string, page: number){
+    this.api.getMovies(title,page).subscribe(
       (response: MovieList) => {
-       this.movies = response.results;
+       [this.movies, this.page, this.totalPages] = [response.results, response.page, response.total_pages];
+      //  this.movies = response.results;
+      //  this.page = response.page;
+      //  this.totalPages = response.total_pages;
        this.movieNotFound = false;
        if (response.results.length == 0 ) this.movieNotFound = true; },       
       (err: HttpErrorResponse) => {
@@ -42,6 +49,8 @@ export class MovielistPage implements OnInit {
       }
     );
   }
+
+  
 
 
 

@@ -18,8 +18,8 @@ export class MoviesService {
   constructor(private http: HttpClient) {}
 
 
-  getMovies(title: string): Observable<MovieList> {
-    return this.http.get<MovieList>(this.baseurl + `search/movie?api_key=${this.API_KEY}&query=` + title);
+  getMovies(title: string, page: number): Observable<MovieList> {
+    return this.http.get<MovieList>(this.baseurl + `search/movie?api_key=${this.API_KEY}&query=` + title + "&page=" + page);
   }
 
   getMovie(id: number): Observable<MovieDetail> {
