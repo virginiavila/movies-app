@@ -1,18 +1,18 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie } from 'src/app/interfaces/Movie';
+import { MovieDetail } from 'src/app/interfaces/MovieDetail';
 import { MoviesService } from 'src/app/services/movies.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-movie',
-  templateUrl: './movie.page.html',
-  styleUrls: ['./movie.page.scss'],
+  templateUrl: './moviedetail.page.html',
+  styleUrls: ['./moviedetail.page.scss'],
 })
-export class MoviePage implements OnInit {
+export class MovieDetailPage implements OnInit {
 
-  movie: Movie;
+  movie: MovieDetail;
   movieid: number;
   imgurl: string = environment.IMG_URL;
 

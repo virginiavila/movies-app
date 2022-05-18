@@ -1,18 +1,18 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Movie } from 'src/app/interfaces/Movie';
+import { MovieDetail } from 'src/app/interfaces/MovieDetail';
 import { MovieList } from 'src/app/interfaces/MovieList';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-movielist',
+  templateUrl: './movielist.page.html',
+  styleUrls: ['./movielist.page.scss'],
 })
-export class HomePage implements OnInit {
+export class MovielistPage implements OnInit {
 
   title: string = ''
-  movies: Movie[] = [];
+  movies: MovieDetail[] = [];
 
   constructor(private api: MoviesService) { }
 
@@ -33,7 +33,6 @@ export class HomePage implements OnInit {
       (error: HttpErrorResponse) => {console.log(error.status)}
     );
   }
-
 
 
 

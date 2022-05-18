@@ -1,8 +1,8 @@
-import { Movie } from "./Movie";
+import { MovieDetail } from "./MovieDetail";
 
 export interface MovieList {
     page: number,
-    results: Movie[],
+    results: MovieDetail[],
     total_pages: number,
     total_results: number,
 }

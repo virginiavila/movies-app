@@ -1,0 +1,41 @@
+*, html{
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --ion-toolbar-background:transparent;
+  }
+
+ion-toolbar {
+    --background-color: transparent;
+    --ion-color-base: transparent !important;
+  }
+  ion-header {
+    --ion-toolbar-background-color: rgba(0, 0, 0, 0);
+}
+
+ion-card{
+max-width: 600px;
+padding: 20px 20px 20px 25px;
+border-radius: 0%;
+border-left: 2px  solid #ffc409;
+box-shadow: none !important;
+}
+
+
+
+.bgr {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    background-size: 100% 100%;
+    filter: grayscale(100%);
+    opacity: 0.1;
+    background-repeat: no-repeat;
+    object-fit: cover;
+ }
+    ::-webkit-scrollbar,
+    *::-webkit-scrollbar {
+    display: none;
+ }

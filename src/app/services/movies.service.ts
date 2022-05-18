@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Movie } from '../interfaces/Movie';
+import { MovieDetail } from '../interfaces/MovieDetail';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { MovieList } from '../interfaces/MovieList';
@@ -22,8 +22,8 @@ export class MoviesService {
     return this.http.get<MovieList>(this.baseurl + `search/movie?api_key=${this.API_KEY}&query=` + title);
   }
 
-  getMovie(id: number): Observable<Movie> {
-    return this.http.get<Movie>(this.baseurl + `movie/${id}?api_key=` + this.API_KEY);
+  getMovie(id: number): Observable<MovieDetail> {
+    return this.http.get<MovieDetail>(this.baseurl + `movie/${id}?api_key=` + this.API_KEY);
   }
 
 

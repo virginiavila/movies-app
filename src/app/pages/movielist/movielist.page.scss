@@ -1,14 +1,14 @@
 *, html{
-    // font-family: 'Montserrat', sans-serif;
     font-family: 'Poppins', sans-serif;
 }
 
-// ion-content{
-//     --background: red
-// }
-
+ion-searchbar{
+    width: 934px;
+}
 
 ion-item{
+    
+    width: 450px;
     --background: linear-gradient(150deg, #303438 0%, #45484e 100%);
     border-radius: 25px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
@@ -16,6 +16,25 @@ ion-item{
     cursor: pointer;
     
 }
+
+
+
+ @media (max-width: 600px) {
+
+
+    ion-item{
+        display: flex;
+        flex-direction: column;
+      
+    }
+
+    ion-searchbar{
+        width: 100%;
+    }
+
+
+    
+ }
 
 
 
