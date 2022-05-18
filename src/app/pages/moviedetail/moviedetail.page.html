@@ -1,5 +1,5 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar class="ion-padding-start" transparent>
+<ion-header class="ion-no-border" >
+  <ion-toolbar class="ion-padding-start">
     <h2><ion-icon name="arrow-back-outline" [routerLink]="['/']" color="warning" slot="start"></ion-icon></h2> 
   </ion-toolbar>
 </ion-header>
@@ -8,43 +8,49 @@
 <ion-content>
 
 
-    <img [src]="imgurl + movie?.backdrop_path"  class="bgr"> 
-
-
+    <img *ngIf="movie?.backdrop_path != null; else backdrop" [src]="imgurl + movie?.backdrop_path"  class="backdrop"> 
+    <ng-template #backdrop><img src="assets/background.jpg"  class="backdrop"> </ng-template>
 
 
   <ion-item-group style="display: flex;  justify-content: center">
     <ion-card>
-      <img [src]="imgurl + movie?.poster_path" width="250px"> 
       <ion-card-header>
-        <ion-card-title  color="light">{{movie?.title}}</ion-card-title>
-        <ion-card-title  color="light"><ion-icon name="star" color="warning"></ion-icon> {{movie?.vote_average}} </ion-card-title>
+          <ion-card-title  color="light" style="font-size: 30px">{{movie?.title}}</ion-card-title>
+          <ion-card-subtitle >{{movie?.tagline}} </ion-card-subtitle>
       </ion-card-header>
-    
-      <ion-card-content>
-        <p>{{movie?.overview}}</p>
+
+      <ion-item  *ngIf="movie?.poster_path != null">
+        <img [src]="imgurl + movie?.poster_path" width="250px"> 
+      </ion-item>  
+
+
+      <ion-card-content> 
+        <p><i>{{movie?.overview}}</i></p>
       </ion-card-content>
 
       <ion-item>
-        <ion-icon name="pin" slot="start"></ion-icon>
-        <ion-label>ion-item in a card, icon left, button right</ion-label>
-        <ion-button fill="outline" slot="end" color="warning">View</ion-button>
-      </ion-item>
+        <ion-icon name="star" color="warning" slot="start"></ion-icon>
+        <ion-label color="light"> {{movie?.vote_average}} <span style="color: grey; font-size: 13px"> / {{movie?.vote_count}} votes</span> </ion-label>
+        </ion-item>  
 
-      <ion-item href="#">
-        <ion-icon name="wine" slot="start"></ion-icon>
-        <ion-label>Card Link Item 2</ion-label>
-      </ion-item>
-
-      <ion-item class="ion-activated">
-        <ion-icon name="calendar-outline" slot="start" color="warning"></ion-icon>
-        <ion-label>{{movie?.release_date}}</ion-label>
-      </ion-item>
-    
       <ion-item>
-        <ion-icon name="walk" slot="start"></ion-icon>
-        <ion-label>Card Button Item 2</ion-label>
+        <ion-icon name="calendar-outline" slot="start"></ion-icon>
+        <ion-label>{{movie?.release_date | date:'mediumDate'}}</ion-label>
+      </ion-item>    
+
+
+      <ion-item>
+        <ion-icon name="chatbubble-ellipses-outline" slot="start"></ion-icon>
+        <ion-label>V.O. {{movie?.original_language}}</ion-label>
       </ion-item>
+
+
+      <ion-item *ngIf="movie?.genres.length != 0">
+        <div *ngFor="let genre of movie?.genres">
+          <ion-button fill="outline" color="warning">{{genre?.name}}</ion-button>
+        </div>
+      </ion-item>
+
     </ion-card>
   </ion-item-group>
 </ion-content>

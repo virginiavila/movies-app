@@ -4,7 +4,11 @@
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content style="margin: 0 auto;">
+  <img src="assets/background.jpg"  class="background"> 
+  
   <ion-grid>
     <ion-row>
         <ion-col>
@@ -15,7 +19,7 @@
 
 
         
-          <ion-list  *ngFor="let movie of movies" [routerLink]="['../moviedetail', movie.id]"  style="display: flex; float: left; justify-content: center">
+          <ion-list  *ngFor="let movie of movies" [routerLink]="['../moviedetail', movie.id]"  style="display: flex; float: left; justify-content: center; background-color: transparent;">
             <ion-item class="ion-text-center itemlist">
               <ion-label>{{movie.title}} <ion-icon name="chevron-forward-outline" color="warning"></ion-icon></ion-label>
               

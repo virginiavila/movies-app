@@ -2,21 +2,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
-:root {
-    --ion-toolbar-background:transparent;
-  }
 
-ion-toolbar {
-    --background-color: transparent;
-    --ion-color-base: transparent !important;
-  }
-  ion-header {
-    --ion-toolbar-background-color: rgba(0, 0, 0, 0);
-}
 
 ion-card{
 max-width: 600px;
 padding: 20px 20px 20px 25px;
+margin: 20px 0px 20px 0px;
 border-radius: 0%;
 border-left: 2px  solid #ffc409;
 box-shadow: none !important;
@@ -24,14 +15,14 @@ box-shadow: none !important;
 
 
 
-.bgr {
+.backdrop {
     height: 100%;
     width: 100%;
     top: 0;
     position: fixed;
     background-size: 100% 100%;
     filter: grayscale(100%);
-    opacity: 0.1;
+    opacity: 0.2;
     background-repeat: no-repeat;
     object-fit: cover;
  }
@@ -39,3 +30,16 @@ box-shadow: none !important;
     *::-webkit-scrollbar {
     display: none;
  }
+
+ @media (max-width: 600px) {
+
+  ion-card{
+    margin: 20px 25px 20px 25px;
+    padding: 15px 15px 15px 20px;
+    border-radius: 0%;
+    border-left: 2px  solid #ffc409;
+    box-shadow: none !important;
+    }
+
+  
+}
