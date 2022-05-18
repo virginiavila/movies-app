@@ -29,7 +29,9 @@ export class MovielistPage implements OnInit {
   }
 
   getMovieByTitle($event: any) {
-    this.title = $event.target.value
+    this.title = $event.target.value;
+    this.totalPages = 0; 
+    this.page = 1;
     if( this.title == '') {this.movies = []; this.movieNotFound == false;}
     else this.searchMovie(this.title, 1);
   }

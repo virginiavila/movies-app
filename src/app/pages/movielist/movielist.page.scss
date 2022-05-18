@@ -6,6 +6,10 @@ ion-searchbar{
     width: 934px;
 }
 
+ion-list{
+    display: flex; 
+    float: left;
+}
 
 ion-item{    
     width: 450px;
@@ -14,6 +18,7 @@ ion-item{
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     margin: 5px 10px 0px 10px;
     cursor: pointer;
+
     
 }
 
@@ -32,22 +37,27 @@ ion-item{
     object-fit: cover;
  }
 
+ ion-button{
+     margin: 20px 0px 10px 20px
+ }
 
 
- @media (max-width: 600px) {
-
+ @media (max-width: 500px) {
+  
+    ion-list{
+        width: 100%;   
+    }
 
     ion-item{
-        display: flex;
-        flex-direction: column;
-      
+        width: 100%; 
+        margin: 5px 5px 0px 5px;  
     }
 
     ion-searchbar{
         width: 100%;
     }
 
-
+ 
     
  }
 
