@@ -36,13 +36,12 @@ export class MovielistPage implements OnInit {
     else this.searchMovie(this.title, 1);
   }
 
+
+
   searchMovie(title: string, page: number){
     this.api.getMovies(title,page).subscribe(
       (response: MovieList) => {
        [this.movies, this.page, this.totalPages] = [response.results, response.page, response.total_pages];
-      //  this.movies = response.results;
-      //  this.page = response.page;
-      //  this.totalPages = response.total_pages;
        this.movieNotFound = false;
        if (response.results.length == 0 ) this.movieNotFound = true; },       
       (err: HttpErrorResponse) => {

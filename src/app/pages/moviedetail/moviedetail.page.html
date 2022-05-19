@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border" >
+<ion-header class="ion-no-border">
   <ion-toolbar class="ion-padding-start">
     <h2><ion-icon name="arrow-back-outline" [routerLink]="['/']" color="warning" slot="start"></ion-icon></h2> 
   </ion-toolbar>
@@ -24,9 +24,9 @@
       </ion-card-content>  
 
 
-      <ion-card-content> 
+      <ion-card-content *ngIf="movie?.overview.length != 0"> 
         <p *ngIf="value<10000" ><i>{{movie?.overview |  slice: 0 : value }} ...<span  class="readmore" (click)="value=10000"> read more</span> </i></p>
-        <p *ngIf="value>180" ><i>{{movie?.overview |  slice: 0 : value }} ...<span class="readmore" (click)="value=180"> hide</span> </i></p>
+        <p *ngIf="value>180" ><i>{{movie?.overview |  slice: 0 : value }} <span class="readmore" (click)="value=180">hide</span> </i></p>
       </ion-card-content>
 
       <ion-item>
