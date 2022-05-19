@@ -18,16 +18,14 @@ export class MovieDetailPage implements OnInit {
   value: number = 180;
 
   constructor(private api: MoviesService, private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.params.subscribe( params => {
-      this.movieid = params['movieid'];
-     })
-   }
+  }
 
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe( params => {
+    this.movieid = params['movieid'];})
     this.getMovieDetails(this.movieid);
   }
-
 
   getMovieDetails(id: number) {
     this.api.getMovie(id).subscribe(
@@ -37,9 +35,7 @@ export class MovieDetailPage implements OnInit {
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);
-      }
-    );
+      });
   }
-
 
 }

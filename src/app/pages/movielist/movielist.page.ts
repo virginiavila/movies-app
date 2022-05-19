@@ -32,6 +32,7 @@ export class MovielistPage implements OnInit {
     this.title = $event.target.value;
     this.totalPages = 0; 
     this.page = 1;
+    console.log(this.title);
     if( this.title == '') {this.movies = []; this.movieNotFound == false;}
     else this.searchMovie(this.title, 1);
   }

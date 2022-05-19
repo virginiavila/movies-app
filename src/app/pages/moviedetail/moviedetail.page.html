@@ -4,15 +4,12 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
 
+  <img *ngIf="movie?.backdrop_path != null; else backdrop" [src]="imgurl + movie?.backdrop_path"  class="backdrop" >  
+  <ng-template #backdrop><img src="assets/background.jpg"  class="backdrop"> </ng-template>
 
-    <img *ngIf="movie?.backdrop_path != null; else backdrop" [src]="imgurl + movie?.backdrop_path"  class="backdrop" >  
-    <ng-template #backdrop><img src="assets/background.jpg"  class="backdrop"> </ng-template>
-
-
-  <ion-item-group style="display: flex;  justify-content: center">
+  <ion-item-group style="display: flex; justify-content: center">
     <ion-card>
       <ion-card-header>
           <ion-card-title  color="light" style="font-size: 25px">{{movie?.title}}</ion-card-title>
@@ -22,7 +19,6 @@
       <ion-card-content *ngIf="movie?.poster_path != null">  
         <img [src]="imgurl + movie?.poster_path" width="200px"> 
       </ion-card-content>  
-
 
       <ion-card-content *ngIf="movie?.overview.length != 0"> 
         <p *ngIf="value<10000" ><i>{{movie?.overview |  slice: 0 : value }} ...<span  class="readmore" (click)="value=10000"> read more</span> </i></p>
@@ -39,21 +35,20 @@
         <ion-label>{{movie?.release_date | date:'mediumDate'}}</ion-label>
       </ion-item>    
 
-
       <ion-item>
         <ion-icon name="chatbubble-ellipses-outline" slot="start"></ion-icon>
         <ion-label>Language: {{movie?.original_language}}</ion-label>
       </ion-item>
 
-
-      <ion-item *ngIf="movie?.genres.length != 0">
-        <div *ngFor="let genre of movie?.genres">
-          <ion-button fill="outline" color="warning">{{genre?.name}}</ion-button>
+      <ion-card-content *ngIf="movie?.genres.length != 0">
+        <div *ngFor="let genre of movie?.genres" style="display: flex; float: left">
+          <ion-button fill="outline" color="warning" >{{genre?.name}}</ion-button>
         </div>
-      </ion-item>
+      </ion-card-content>
 
     </ion-card>
   </ion-item-group>
+
 </ion-content>
 
 
