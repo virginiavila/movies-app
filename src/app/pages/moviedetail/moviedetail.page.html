@@ -20,8 +20,8 @@
         <img [src]="imgurl + movie?.poster_path" width="200px"> 
       </ion-card-content>  
 
-      <ion-card-content *ngIf="movie?.overview.length != 0"> 
-        <p *ngIf="value<10000" ><i>{{movie?.overview |  slice: 0 : value }} ...<span  class="readmore" (click)="value=10000"> read more</span> </i></p>
+      <ion-card-content *ngIf="movie?.overview.length != 0 "> 
+        <p *ngIf="value<10000" ><i>{{movie?.overview |  slice: 0 : value }} <span *ngIf="movie?.overview.length > 180"  class="readmore" (click)="value=10000"> ...read more</span> </i></p>
         <p *ngIf="value>180" ><i>{{movie?.overview |  slice: 0 : value }} <span class="readmore" (click)="value=180">hide</span> </i></p>
       </ion-card-content>
 
