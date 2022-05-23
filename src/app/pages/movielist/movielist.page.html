@@ -1,43 +1,52 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar >
-     <ion-title><ion-icon name="play" color="warning"></ion-icon> Movies app</ion-title>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="play" color="warning"></ion-icon> Movies app
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content style="margin: 0 auto;">
-<img src="assets/background.jpg" class="background"> 
-  
-     <ion-grid>
+  <img src="assets/background.jpg" class="background">
 
-          <ion-row>         
-               <ion-searchbar [(ngModel)]="movieTittle" placeholder="Search movie by title" animated debounce="700" color="dark" (ionChange)="getMovieByTitle($event)  ">
-               </ion-searchbar>                  
-          </ion-row>
+  <ion-grid>
 
-          <ion-row>    
-            <div class="hola">
-            <ion-list  *ngFor="let movie of movies" [routerLink]="['../moviedetail', movie.id]"  style="background-color: transparent;">
-              <ion-item class="ion-text-center itemlist">
-                <ion-label>{{movie.title}} <ion-icon name="chevron-forward-outline" color="warning"></ion-icon></ion-label>            
-              </ion-item>
-            </ion-list>
-          </div>  
-            <ion-text color="warning">
-              <h5 *ngIf="movieNotFound" class="alert"><ion-icon name="alert-circle"></ion-icon> {{ movieTittle }} - No movies found </h5> 
-              <h5 *ngIf="apiError" class="alert"><ion-icon name="alert-circle"></ion-icon> {{ errorApiMessage }}</h5> 
-            </ion-text>
-          </ion-row>
+    <ion-row>
+      <ion-searchbar [(ngModel)]="movieTittle" placeholder="Search movie by title" animated debounce="700" color="dark"
+        (ionChange)="getMovieByTitle($event)  ">
+      </ion-searchbar>
+    </ion-row>
+
+    <ion-row>
+      <div class="hola">
+        <ion-list *ngFor="let movie of movies" [routerLink]="['../moviedetail', movie.id]"
+          style="background-color: transparent;">
+          <ion-item class="ion-text-center itemlist">
+            <ion-label>{{movie.title}} <ion-icon name="chevron-forward-outline" color="warning"></ion-icon>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <ion-text color="warning">
+        <h5 *ngIf="movieNotFound" class="alert">
+          <ion-icon name="alert-circle"></ion-icon> {{ movieTittle }} - No movies found
+        </h5>
+        <h5 *ngIf="apiError" class="alert">
+          <ion-icon name="alert-circle"></ion-icon> {{ errorApiMessage }}
+        </h5>
+      </ion-text>
+    </ion-row>
 
 
-          <ion-row *ngIf="totalPages > 1">
-            <ion-button color="warning" fill="outline"  [class.button-disabled]="page == 1" (click)="searchMovie(movieTittle, page-1)">Previous page</ion-button> 
-            <ion-button color="warning" fill="outline"  [class.button-disabled]="page == totalPages" (click)="searchMovie(movieTittle, page+1)">Next page</ion-button>
-          </ion-row>
+    <ion-row *ngIf="totalPages > 1">
+      <ion-button color="warning" fill="outline" [class.button-disabled]="page == 1"
+        (click)="searchMovie(movieTittle, page-1)">Previous page</ion-button>
+      <ion-button color="warning" fill="outline" [class.button-disabled]="page == totalPages"
+        (click)="searchMovie(movieTittle, page+1)">Next page</ion-button>
+    </ion-row>
 
-   </ion-grid>
+  </ion-grid>
 
-        
+
 </ion-content>
-
-
 

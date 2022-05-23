@@ -1,19 +1,19 @@
-*, html{
+*,
+html {
     font-family: 'Poppins', sans-serif;
 }
 
-ion-card{
+ion-card {
     max-width: 620px;
     padding: 10px 10px 10px 25px;
     margin: 20px 0px 20px 0px;
     border-radius: 0%;
-    border-left: 2px  solid #ffc409;
+    border-left: 2px solid #ffc409;
 }
 
-.readmore{
+.readmore {
     color: #ffc609a2
 }
-
 
 .backdrop {
     height: 100%;
@@ -25,18 +25,15 @@ ion-card{
     object-fit: cover;
     opacity: 0.25;
     filter: grayscale(100%);
- }
+}
 
+@media (max-width: 600px) {
 
-
- @media (max-width: 600px) {
-
-  ion-card{
-    margin: 20px 25px 20px 25px;
-    padding: 15px 15px 15px 20px;
-    border-radius: 0%;
-    border-left: 2px  solid #ffc409;
+    ion-card {
+        margin: 20px 25px 20px 25px;
+        padding: 15px 15px 15px 20px;
+        border-radius: 0%;
+        border-left: 2px solid #ffc409;
     }
 
-  
 }

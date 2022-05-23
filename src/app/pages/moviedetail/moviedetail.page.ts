@@ -11,31 +11,31 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./moviedetail.page.scss'],
 })
 export class MovieDetailPage implements OnInit {
-
   movie: MovieDetail;
   movieid: number;
   imgurl: string = environment.IMG_URL;
   value: number = 180;
 
-  constructor(private api: MoviesService, private activatedRoute: ActivatedRoute) {
-  }
-
+  constructor(
+    private api: MoviesService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe( params => {
-    this.movieid = params['movieid'];})
-    this.getMovieDetails(this.movieid);
+    this.activatedRoute.params.subscribe((params) => {
+      this.movieid = params['movieid'];
+      this.getMovieDetails(this.movieid);
+    });
   }
 
   getMovieDetails(id: number) {
     this.api.getMovie(id).subscribe(
       (response) => {
         this.movie = response;
-        console.log(this.movie);   
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);
-      });
+      }
+    );
   }
-
 }

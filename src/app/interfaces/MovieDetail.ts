@@ -16,7 +16,6 @@ export interface MovieDetail {
   vote_count: number;
 }
 
-
 interface GenreDetails {
   id: number;
   name: string;
